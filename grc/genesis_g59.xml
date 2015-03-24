@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<block>
+    <name>G59</name>
+    <key>genesis_g59</key>
+    <category>Genesis</category>
+    <import>import genesis</import>
+    <make>genesis.g59(
+                 freq=$lo_freq,
+                 filt=$band_filter,
+                 attenuation=$attenuation,
+                 audiopreamp=$audio_preamp,
+                 rfpreamp=$rf_preamp,
+                 tx=$tx,
+                 transverterver=$transverter)
+    </make>
+    <callback>set_lo_frequency($lo_freq)</callback>
+    <callback>set_band_filter($band_filter)</callback>
+    <callback>attenuator($attenuation)</callback>
+    <callback>audiopreamp($audio_preamp)</callback>
+    <callback>rfpreamp($rf_preamp)</callback>
+    <callback>tx($tx)</callback>
+    <callback>transverterver($transverter)</callback>
+    <param>
+        <name>LO Frequency</name>
+        <key>lo_freq</key>
+        <value>10.0</value>
+        <type>real</type>
+    </param>
+    <param>
+        <name>Band Filter</name>
+        <key>band_filter</key>
+        <value>0</value>
+        <type>int</type>
+        <option>
+            <name>Bypass</name>
+            <key>0</key>
+        </option>
+        <option>
+            <name>160m</name>
+            <key>1</key>
+        </option>
+        <option>
+            <name>80m</name>
+            <key>2</key>
+        </option>
+        <option>
+            <name>60-40m</name>
+            <key>3</key>
+        </option>
+        <option>
+            <name>30-20m</name>
+            <key>4</key>
+        </option>
+        <option>
+            <name>17-15m</name>
+            <key>5</key>
+        </option>
+        <option>
+            <name>12-10m</name>
+            <key>6</key>
+        </option>
+        <option>
+            <name>6m</name>
+            <key>7</key>
+        </option>
+    </param>
+    <param>
+        <name>Attenuator</name>
+        <key>attenuation</key>
+        <value>False</value>
+        <type>int</type>
+        <option>
+            <name>On</name>
+            <key>True</key>
+        </option>
+        <option>
+            <name>Off</name>
+            <key>False</key>
+        </option>
+    </param>
+    <param>
+        <name>Audio Preamplifier</name>
+        <key>audio_preamp</key>
+        <value>False</value>
+        <type>int</type>
+        <option>
+            <name>On</name>
+            <key>True</key>
+        </option>
+        <option>
+            <name>Off</name>
+            <key>False</key>
+        </option>
+    </param>
+    <param>
+        <name>RF Preamplifier</name>
+        <key>rf_preamp</key>
+        <value>False</value>
+        <type>int</type>
+        <option>
+            <name>On</name>
+            <key>True</key>
+        </option>
+        <option>
+            <name>Off</name>
+            <key>False</key>
+        </option>
+    </param>
+    <param>
+        <name>TX</name>
+        <key>tx</key>
+        <value>False</value>
+        <type>int</type>
+        <option>
+            <name>On</name>
+            <key>True</key>
+        </option>
+        <option>
+            <name>Off</name>
+            <key>False</key>
+        </option>
+    </param>
+    <param>
+        <name>Transverter</name>
+        <key>transverter</key>
+        <value>False</value>
+        <type>int</type>
+        <option>
+            <name>On</name>
+            <key>True</key>
+        </option>
+        <option>
+            <name>Off</name>
+            <key>False</key>
+        </option>
+    </param>
+    <doc>
+This Block provides control of a Genesis G59 SDR transceiver.
+
+LO Frequency is the cneter frequency in Mhz.
+
+Band Filter may be an interger value between 0 and 7, representing the bandpass filters for Bypass, 160m, 80m, 60-40m, 30-20m, 17-15m, 12-10m, or 6m respectivily.
+
+Attenuator enables the -20dB RF Attenuation. It may be either ON, or Off.
+
+AF_Preamplifier boosts the Line Out output. It may be either ON, or Off.
+
+RF_preamplifier enables the 20dB RF Preamplifier. It may be either ON, or Off.
+
+TX places the radio into TX Mode. It may be either ON, or Off.
+
+Transverter enables the transverter option. It may be either ON, or Off.
+    </doc>
+</block>
